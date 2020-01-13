@@ -36,7 +36,6 @@ class Berat {
     return <Berat>[
       Berat(1, 'Kg'),
       Berat(2, 'Ton'),
-    
     ];
   }
 }
@@ -51,7 +50,6 @@ class Uang {
     return <Uang>[
       Uang(1, 'Rp'),
       Uang(2, 'US﹩'),
-    
     ];
   }
 }
@@ -61,15 +59,14 @@ class Pembayaran {
   String name;
 
   Pembayaran(this.id, this.name);
-  static List<Pembayaran> getPembayaran(){
+  static List<Pembayaran> getPembayaran() {
     return <Pembayaran>[
-      Pembayaran(0,'Metode Pembayaran'),
-      Pembayaran(1,'Advanced Payment'),
-      Pembayaran(2,'Letter of Credit'),
-      Pembayaran(2,'Open Account')
+      Pembayaran(0, 'Metode Pembayaran'),
+      Pembayaran(1, 'Advanced Payment'),
+      Pembayaran(2, 'Letter of Credit'),
+      Pembayaran(2, 'Open Account')
     ];
   }
-
 }
 
 class Datas {
@@ -96,7 +93,6 @@ class Datas {
 class Forms extends StatefulWidget {
   @override
   _FormsState createState() => _FormsState();
-  
 }
 
 class _FormsState extends State<Forms> {
@@ -110,8 +106,6 @@ class _FormsState extends State<Forms> {
   TextEditingController lastDateController = TextEditingController();
   String buttonText = "Kapan Tanggal terakhir pengiriman barang ?";
   // TextEditingController documentController = TextEditingController();
-
-  
 
   DateTime selectedDate = DateTime.now();
   var formatter = new DateFormat('yyyy-MM-dd');
@@ -127,32 +121,27 @@ class _FormsState extends State<Forms> {
 
   List<Pembayaran> _pembayaran = Pembayaran.getPembayaran();
   List<DropdownMenuItem<Pembayaran>> _dropdownMenuItemsPembayaran;
-  
-  
+
   Incoterms _selectedIncoterms;
   Berat _selectedBerat;
   Uang _selectedUang;
   Pembayaran _selectedPembayaran;
 
-  
-  
   @override
   void initState() {
-    
     _dropdownMenuItems = buildDropdownMenuItems(_incoterms);
     _selectedIncoterms = _dropdownMenuItems[0].value;
 
-  
-
-     _dropdownMenuItemsBerat = buildDropdownMenuItemsBerat(_berat);
+    _dropdownMenuItemsBerat = buildDropdownMenuItemsBerat(_berat);
     _selectedBerat = _dropdownMenuItemsBerat[0].value;
 
-     _dropdownMenuItemsUang = buildDropdownMenuItemsUang(_uang);
+    _dropdownMenuItemsUang = buildDropdownMenuItemsUang(_uang);
     _selectedUang = _dropdownMenuItemsUang[0].value;
 
-     _dropdownMenuItemsPembayaran = buildDropdownMenuItemsPembayaran(_pembayaran);
+    _dropdownMenuItemsPembayaran =
+        buildDropdownMenuItemsPembayaran(_pembayaran);
     _selectedPembayaran = _dropdownMenuItemsPembayaran[0].value;
-  
+
     super.initState();
   }
 
@@ -195,7 +184,8 @@ class _FormsState extends State<Forms> {
     return items;
   }
 
-  List<DropdownMenuItem<Pembayaran>> buildDropdownMenuItemsPembayaran(List pembayaran) {
+  List<DropdownMenuItem<Pembayaran>> buildDropdownMenuItemsPembayaran(
+      List pembayaran) {
     List<DropdownMenuItem<Pembayaran>> items = List();
     for (Pembayaran pembayarans in pembayaran) {
       items.add(
@@ -249,11 +239,9 @@ class _FormsState extends State<Forms> {
 
   @override
   Widget build(BuildContext context) {
-
-  
-  
     Color green = const Color(0xff2C918D);
     return Scaffold(
+      
       body: Container(
         child: Column(
           children: <Widget>[
@@ -365,13 +353,17 @@ class _FormsState extends State<Forms> {
                                   ),
                                 ),
                               ),
-                              Container(child: DropdownButton(value: _selectedBerat,
-                        items: _dropdownMenuItemsBerat,
-                        onChanged: onChangeDropdownItemBerat,),)
+                              Container(
+                                child: DropdownButton(
+                                  value: _selectedBerat,
+                                  items: _dropdownMenuItemsBerat,
+                                  onChanged: onChangeDropdownItemBerat,
+                                ),
+                              )
                             ],
                           ),
                         ),
-                        
+
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(
@@ -389,11 +381,13 @@ class _FormsState extends State<Forms> {
                                   ),
                                 ),
                               ),
-                              Container(child: DropdownButton(
-                                value: _selectedUang,
-                                items:_dropdownMenuItemsUang,
-                                onChanged: onChangeDropdownItemUang,
-                              ),)
+                              Container(
+                                child: DropdownButton(
+                                  value: _selectedUang,
+                                  items: _dropdownMenuItemsUang,
+                                  onChanged: onChangeDropdownItemUang,
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -408,7 +402,7 @@ class _FormsState extends State<Forms> {
                         //         labelText: 'Incoterms apa yang anda gunakan ?'),
                         //   ),
                         // ),
-                        
+
                         Row(
                           children: <Widget>[
                             Padding(
@@ -417,8 +411,7 @@ class _FormsState extends State<Forms> {
                                 // width: double.infinity,
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
-                                         color: Colors.black54),
+                                    side: BorderSide(color: Colors.black54),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5.0)),
                                   ),
@@ -432,9 +425,11 @@ class _FormsState extends State<Forms> {
                                 ),
                               ),
                             ),
-                            GestureDetector(onTap: (){
-                              _showDialog();
-                            }, child: Icon(Icons.help))
+                            GestureDetector(
+                                onTap: () {
+                                  _showDialog();
+                                },
+                                child: Icon(Icons.help))
                           ],
                         ),
                         // Padding(
@@ -448,26 +443,34 @@ class _FormsState extends State<Forms> {
                         //             'Apa metode pembayaran yang digunakan ?'),
                         //   ),
                         // ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                     color: Colors.black54),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Container(
+                                // width: double.infinity,
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: Colors.black54),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5.0)),
+                                  ),
+                                ),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton(
+                                    value: _selectedPembayaran,
+                                    items: _dropdownMenuItemsPembayaran,
+                                    onChanged: onChangeDropdownItemPembayaran,
+                                  ),
+                                ),
                               ),
                             ),
-                            child: DropdownButtonHideUnderline(
-                              child: DropdownButton(
-                                value: _selectedPembayaran,
-                                items: _dropdownMenuItemsPembayaran,
-                                onChanged: onChangeDropdownItemPembayaran,
-                              ),
-                            ),
-                          ),
+                            GestureDetector(
+                                onTap: () {
+                                  _showDialogPayment();
+                                },
+                                child: Icon(Icons.help))
+                          ],
                         ),
                         // DropdownButtonFormField()
                         Padding(
@@ -523,6 +526,183 @@ class _FormsState extends State<Forms> {
     );
   }
 
+  void _showDialogPayment() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          backgroundColor: const Color(0xff2C918D),
+          title: new Text(
+            "Metode Pembayaran",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white),
+          ),
+          content: new Container(
+              width: 300,
+              height: 200,
+              child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          width: 250,
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Advance Payment \n",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Text(
+                                "Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: const Color(0xffB8E6DB),
+                                        shape: BoxShape.circle,
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5.0, right: 5.0),
+                                    child: Container(
+                                        width: 10.0,
+                                        height: 10.0,
+                                        decoration: new BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        )),
+                                  ),
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      )),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Container(
+                          width: 250,
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Letter Of Credit \n",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Text(
+                                "Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5.0, right: 5.0),
+                                    child: Container(
+                                        width: 10.0,
+                                        height: 10.0,
+                                        decoration: new BoxDecoration(
+                                          color: const Color(0xffB8E6DB),
+                                          shape: BoxShape.circle,
+                                        )),
+                                  ),
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      )),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Container(
+                          width: 250,
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Open Account \n",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Text(
+                                "Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 5.0, right: 5.0),
+                                    child: Container(
+                                        width: 10.0,
+                                        height: 10.0,
+                                        decoration: new BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        )),
+                                  ),
+                                  Container(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      decoration: new BoxDecoration(
+                                        color: Color(0xffB8E6DB),
+                                        shape: BoxShape.circle,
+                                      )),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ])),
+        );
+      },
+    );
+  }
+
   void _showDialog() {
     // flutter defined function
     showDialog(
@@ -531,17 +711,23 @@ class _FormsState extends State<Forms> {
         // return object of type Dialog
         return AlertDialog(
           backgroundColor: const Color(0xff2C918D),
-          title: new Text("Incoterms ?",style: TextStyle(color: Colors.white),),
-          content: Container(child: new Text("Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",style: TextStyle(color: Colors.white),)),
+          title: new Text(
+            "Incoterms ?",
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Container(
+              child: new Text(
+            "Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",
+            style: TextStyle(color: Colors.white),
+          )),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             ButtonTheme(
-              
               buttonColor: const Color(0xffB8E6DB),
-                          child: new RaisedButton(
-                            shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.white)),
+              child: new RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.white)),
                 child: new Text("Lanjut"),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -549,8 +735,6 @@ class _FormsState extends State<Forms> {
                 },
               ),
             ),
-
-            
           ],
         );
       },
@@ -562,56 +746,62 @@ class _FormsState extends State<Forms> {
     var contents = '';
 
     if (text == 'EXW') {
-    judul = 'EXW - Ex Works';
-    contents = 'Pihak penjual menentukan tempat pengambilan barang, Pihak pembeli bertanggung jawab untuk biaya angkut, resiko selama perjalanan dan biaya saat pembongkaran.';
-  }else if(text == 'FCA'){
-    judul = 'FCA - Free Carrier ';
-    contents = 'Pihak penjual hanya bertanggung jawab untuk mengurus izin ekspor dan meyerahkan barang ke pihak pengangkut di tempat yang telah ditentukan. Pihak pembeli hanya membayar biaya pengiriman dan tanggung jawab hangus saat barang di serahkan di pelabuhan tujuan.';
-  }else if(text == 'CPT'){
-    judul = 'CPT - Carriage Paid To';
-    contents = 'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
-  }else if(text == 'CPT'){
-    judul = 'CPT - Carriage Paid To';
-    contents = 'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
-  }else if(text == 'CIP'){
-    judul = 'CIP - Carriage and Insurance Paid to';
-    contents = 'Sama seperti CPT ditambah pihak penjual wajib membayar asuransi untuk barang yang dikirim hingga barang diserahkan.';
-  }else if(text == 'CPT'){
-    judul = 'CPT - Carriage Paid To';
-    contents = 'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
-  }
-  else if(text == 'CPT'){
-    judul = 'CPT - Carriage Paid To';
-    contents = 'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
-  }
-  else if(text == 'DAT'){
-    judul = 'DAT – Delivered at Terminal';
-    contents = 'Pihak penjual membayar sampai ke pembongkaran di terminal pelabuhan tujuan, kecuali beban biaya sehubungan biaya, tanggung jawab bebas saat kapal selesai bongkar di terminal pelabuhan tujuan.';
-  }
-  else if(text == 'DAP'){
-    judul = 'DAP – Delivered at Place';
-    contents = 'Hampir sama sepertiDAT dengan tambahan biaya pengangkutan ke tempat tujuan dan asuransi menjadi tanggaungan pihak penjual';
-  }
-  else if(text == 'DDP'){
-    judul = 'DDP - Delivered Duty Paid';
-    contents = 'Pihak penjual bertanggung jawab mengantar barang sampai di tempat tujuan, termasuk biaya asuransi dan semua biaya lain yang mungkin muncul sebagai biaya impor, cukai dan pajak dari negara pihak pembeli. Izin impor juga menjadi tanggung jawab pihak penjual.';
-  }
-  else if(text == 'FAS'){
-    judul = 'FAS - Free Alongside Ship';
-    contents = 'Pihak penjual bertanggung jawab sampai barang berada di pelabuhan keberangkatan dan siap disamping kapal untuk dimuat. Biaya lain samapai ke tempat tujuan akan menjadi tanggung jawab pihak pembeli. Hanya berlaku untuk transportasi air.';
-  }
-  else if(text == 'FOB'){
-    judul = 'FOB - Free On Board';
-    contents = 'Pihak penjual bertanggung jawab dari mengurus izin ekspor sampai memuat barang di kapal yang siap berangkat. Biaya pengangkutan dari pelabuhan asal samapi ke tempat tujuan akan menjadi tanggungan pembeli. Hanya berlaku untuk transportasi air.';
-  }
-  else if(text == 'CFR'){
-    judul = 'CFR - Cost and Freight';
-    contents = 'pihak penjual menanggung biaya sampai kapal yang memuat barang merapat di pelabuhan tujuan, namun tanggung jawab penjual hanya sampai saat barang selesai di muat ke kapal. Hanya berlaku untuk transportasi air.';
-  }
-  else{
-    judul = 'CIF - Cost, Insurance and Freight';
-    contents = 'Sama seperti CFR ditambah pihak penjual wajib membayar asuransi untuk barang yang dikirim. Hanya berlaku untuk transportasi air.';
-  }
+      judul = 'EXW - Ex Works';
+      contents =
+          'Pihak penjual menentukan tempat pengambilan barang, Pihak pembeli bertanggung jawab untuk biaya angkut, resiko selama perjalanan dan biaya saat pembongkaran.';
+    } else if (text == 'FCA') {
+      judul = 'FCA - Free Carrier ';
+      contents =
+          'Pihak penjual hanya bertanggung jawab untuk mengurus izin ekspor dan meyerahkan barang ke pihak pengangkut di tempat yang telah ditentukan. Pihak pembeli hanya membayar biaya pengiriman dan tanggung jawab hangus saat barang di serahkan di pelabuhan tujuan.';
+    } else if (text == 'CPT') {
+      judul = 'CPT - Carriage Paid To';
+      contents =
+          'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
+    } else if (text == 'CPT') {
+      judul = 'CPT - Carriage Paid To';
+      contents =
+          'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
+    } else if (text == 'CIP') {
+      judul = 'CIP - Carriage and Insurance Paid to';
+      contents =
+          'Sama seperti CPT ditambah pihak penjual wajib membayar asuransi untuk barang yang dikirim hingga barang diserahkan.';
+    } else if (text == 'CPT') {
+      judul = 'CPT - Carriage Paid To';
+      contents =
+          'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
+    } else if (text == 'CPT') {
+      judul = 'CPT - Carriage Paid To';
+      contents =
+          'Pihak penjual menanggung biaya sampai barang tiba di tempat tujuan, namun tanggung jawab hanya sampai saat barang diserahkan ke pihak pengangkut.';
+    } else if (text == 'DAT') {
+      judul = 'DAT – Delivered at Terminal';
+      contents =
+          'Pihak penjual membayar sampai ke pembongkaran di terminal pelabuhan tujuan, kecuali beban biaya sehubungan biaya, tanggung jawab bebas saat kapal selesai bongkar di terminal pelabuhan tujuan.';
+    } else if (text == 'DAP') {
+      judul = 'DAP – Delivered at Place';
+      contents =
+          'Hampir sama sepertiDAT dengan tambahan biaya pengangkutan ke tempat tujuan dan asuransi menjadi tanggaungan pihak penjual';
+    } else if (text == 'DDP') {
+      judul = 'DDP - Delivered Duty Paid';
+      contents =
+          'Pihak penjual bertanggung jawab mengantar barang sampai di tempat tujuan, termasuk biaya asuransi dan semua biaya lain yang mungkin muncul sebagai biaya impor, cukai dan pajak dari negara pihak pembeli. Izin impor juga menjadi tanggung jawab pihak penjual.';
+    } else if (text == 'FAS') {
+      judul = 'FAS - Free Alongside Ship';
+      contents =
+          'Pihak penjual bertanggung jawab sampai barang berada di pelabuhan keberangkatan dan siap disamping kapal untuk dimuat. Biaya lain samapai ke tempat tujuan akan menjadi tanggung jawab pihak pembeli. Hanya berlaku untuk transportasi air.';
+    } else if (text == 'FOB') {
+      judul = 'FOB - Free On Board';
+      contents =
+          'Pihak penjual bertanggung jawab dari mengurus izin ekspor sampai memuat barang di kapal yang siap berangkat. Biaya pengangkutan dari pelabuhan asal samapi ke tempat tujuan akan menjadi tanggungan pembeli. Hanya berlaku untuk transportasi air.';
+    } else if (text == 'CFR') {
+      judul = 'CFR - Cost and Freight';
+      contents =
+          'pihak penjual menanggung biaya sampai kapal yang memuat barang merapat di pelabuhan tujuan, namun tanggung jawab penjual hanya sampai saat barang selesai di muat ke kapal. Hanya berlaku untuk transportasi air.';
+    } else {
+      judul = 'CIF - Cost, Insurance and Freight';
+      contents =
+          'Sama seperti CFR ditambah pihak penjual wajib membayar asuransi untuk barang yang dikirim. Hanya berlaku untuk transportasi air.';
+    }
     // flutter defined function
     showDialog(
       context: context,
@@ -619,17 +809,23 @@ class _FormsState extends State<Forms> {
         // return object of type Dialog
         return AlertDialog(
           backgroundColor: const Color(0xff2C918D),
-          title: new Text("Incoterms\n" + judul,style: TextStyle(color: Colors.white),),
-          content: Container(child: new Text("Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",style: TextStyle(color: Colors.white),)),
+          title: new Text(
+            "Incoterms\n" + judul,
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Container(
+              child: new Text(
+            "Incoterms menjelaskan hak dan kewajiban pembeli dan penjual yang berhubungan dengan pengiriman barang seperti biaya dan tanggung jawab atas barang.",
+            style: TextStyle(color: Colors.white),
+          )),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             ButtonTheme(
-              
               buttonColor: const Color(0xffB8E6DB),
-                          child: new RaisedButton(
-                            shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.white)),
+              child: new RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.white)),
                 child: new Text("Lanjut"),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -637,8 +833,6 @@ class _FormsState extends State<Forms> {
                 },
               ),
             ),
-
-            
           ],
         );
       },
@@ -649,7 +843,6 @@ class _FormsState extends State<Forms> {
     Color ijoMuda = const Color(0xffB8E6DB);
     // flutter defined function
     showDialog(
-      
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
@@ -660,182 +853,176 @@ class _FormsState extends State<Forms> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Row(
-                
                 children: <Widget>[
                   SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("EXW"),onPressed: (){
-                         var text = 'EXW';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SizedBox(
                       width: 70,
                       child: RaisedButton(
                         color: ijoMuda,
-                         shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                         child: Text("FAS"),onPressed: (){
-                           var text = 'FAS';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                         },)
-                      ),
-                    ),
-
-                    SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("FOB"),onPressed: (){
-                         var text = 'FOB';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("EXW"),
+                        onPressed: () {
+                          var text = 'EXW';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: SizedBox(
+                        width: 70,
+                        child: RaisedButton(
+                          color: ijoMuda,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text("FAS"),
+                          onPressed: () {
+                            var text = 'FAS';
+                            Navigator.of(context).pop();
+                            _showDetailIncoterms(text);
+                          },
+                        )),
+                  ),
+                  SizedBox(
+                      width: 70,
+                      child: RaisedButton(
+                        color: ijoMuda,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("FOB"),
+                        onPressed: () {
+                          var text = 'FOB';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
                 ],
               ),
-
               Row(
-                
                 children: <Widget>[
                   SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("FCA"),onPressed: (){
-                         var text = 'FCA';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SizedBox(
                       width: 70,
                       child: RaisedButton(
                         color: ijoMuda,
-                         shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                         child: Text("CRF"),onPressed: (){
-                           var text = 'CRF';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                         },)
-                      ),
-                    ),
-
-                    SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("CPT"),onPressed: (){
-                         var text = 'CPT';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("FCA"),
+                        onPressed: () {
+                          var text = 'FCA';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: SizedBox(
+                        width: 70,
+                        child: RaisedButton(
+                          color: ijoMuda,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text("CRF"),
+                          onPressed: () {
+                            var text = 'CRF';
+                            Navigator.of(context).pop();
+                            _showDetailIncoterms(text);
+                          },
+                        )),
+                  ),
+                  SizedBox(
+                      width: 70,
+                      child: RaisedButton(
+                        color: ijoMuda,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("CPT"),
+                        onPressed: () {
+                          var text = 'CPT';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
                 ],
               ),
-
               Row(
-                
                 children: <Widget>[
                   SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("CIF"),onPressed: (){
-                         var text = 'CIF';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SizedBox(
                       width: 70,
                       child: RaisedButton(
                         color: ijoMuda,
-                         shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                         child: Text("CIP"),onPressed: (){
-                           var text = 'CIP';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                         },)
-                      ),
-                    ),
-
-                    SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("DAT"),onPressed: (){
-                         var text = 'DAT';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("CIF"),
+                        onPressed: () {
+                          var text = 'CIF';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: SizedBox(
+                        width: 70,
+                        child: RaisedButton(
+                          color: ijoMuda,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text("CIP"),
+                          onPressed: () {
+                            var text = 'CIP';
+                            Navigator.of(context).pop();
+                            _showDetailIncoterms(text);
+                          },
+                        )),
+                  ),
+                  SizedBox(
+                      width: 70,
+                      child: RaisedButton(
+                        color: ijoMuda,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("DAT"),
+                        onPressed: () {
+                          var text = 'DAT';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
                 ],
               ),
-
               Row(
-                
                 children: <Widget>[
                   SizedBox(
-                    width: 70,
-                    child: RaisedButton(
-                      color: ijoMuda,
-                       shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                       child: Text("DAP"),onPressed: (){
-                         var text = 'DAP';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                       },)
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SizedBox(
                       width: 70,
                       child: RaisedButton(
                         color: ijoMuda,
-                         shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                         child: Text("DDP"),onPressed: (){
-                           var text = 'DDP';
-                         Navigator.of(context).pop();
-                         _showDetailIncoterms(text);
-                         },)
-                      ),
-                    ),
-
-                
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0)),
+                        child: Text("DAP"),
+                        onPressed: () {
+                          var text = 'DAP';
+                          Navigator.of(context).pop();
+                          _showDetailIncoterms(text);
+                        },
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: SizedBox(
+                        width: 70,
+                        child: RaisedButton(
+                          color: ijoMuda,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text("DDP"),
+                          onPressed: () {
+                            var text = 'DDP';
+                            Navigator.of(context).pop();
+                            _showDetailIncoterms(text);
+                          },
+                        )),
+                  ),
                 ],
               ),
-              
             ],
           ),
           actions: <Widget>[
@@ -843,10 +1030,12 @@ class _FormsState extends State<Forms> {
             new RaisedButton(
               color: const Color(0xff2C918D),
               shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.white)),
-              child: new Text("Close",style: TextStyle(color: Colors.white),),
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.white)),
+              child: new Text(
+                "Close",
+                style: TextStyle(color: Colors.white),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },

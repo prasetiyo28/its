@@ -57,6 +57,12 @@ flutter:
    - assets/incoterm.png
    - assets/list_notif.png
    - assets/shipping.gif
+   - assets/statistic.png
+   - assets/tujuan.png
+   - assets/grafik.png
+   - assets/law.png
+   - assets/map.png
+   - assets/toppeak.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

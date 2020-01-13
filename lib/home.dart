@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:its/forms.dart';
 import 'package:its/login.dart';
+import 'package:its/perjanjianDagang.dart';
 
 class Home extends StatefulWidget {
   final User users;
@@ -109,29 +110,34 @@ class _HomeState extends State<Home> {
                         )
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Column(
-                        children: <Widget>[
-                          Material(
-                            color: green,
-                            borderRadius: BorderRadius.circular(20),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.pan_tool,
-                                size: 50,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PerjanjianDagang()));
+                      },
+                                          child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Column(
+                          children: <Widget>[
+                            Material(
+                              color: green,
+                              borderRadius: BorderRadius.circular(20),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Icon(
+                                  Icons.pan_tool,
+                                  size: 50,
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Text(
-                              "Perjanjian Dagang",
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          )
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                "Perjanjian Dagang",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Column(

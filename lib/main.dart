@@ -4,6 +4,7 @@ import 'package:its/forms.dart';
 import 'package:its/home.dart';
 import 'package:its/login.dart';
 import 'package:its/onboarding.dart';
+import 'package:its/perjanjianDagang.dart';
 import 'package:its/salesContract.dart';
 
 void main() => runApp(MyApp());
