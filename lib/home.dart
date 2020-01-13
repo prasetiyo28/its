@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:its/forms.dart';
 import 'package:its/login.dart';
+import 'package:its/paymentMethod.dart';
 import 'package:its/perjanjianDagang.dart';
 
 class Home extends StatefulWidget {
@@ -165,36 +166,15 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 50, top: 30),
-                child: Row(
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Material(
-                          color: green,
-                          borderRadius: BorderRadius.circular(20),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Icon(
-                              Icons.monetization_on,
-                              size: 50,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Text(
-                            "Metode\nPembayaran",
-                            style: TextStyle(fontSize: 10),
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Column(
+              GestureDetector(
+                onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentMethod()));
+                      },
+                              child: Padding(
+                  padding: const EdgeInsets.only(left: 50, top: 30),
+                  child: Row(
+                    children: <Widget>[
+                      Column(
                         children: <Widget>[
                           Material(
                             color: green,
@@ -202,7 +182,55 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Icon(
-                                Icons.note_add,
+                                Icons.monetization_on,
+                                size: 50,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              "Metode\nPembayaran",
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: Column(
+                          children: <Widget>[
+                            Material(
+                              color: green,
+                              borderRadius: BorderRadius.circular(20),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Icon(
+                                  Icons.note_add,
+                                  size: 50,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Text(
+                                "Dokumen",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Material(
+                            color: green,
+                            borderRadius: BorderRadius.circular(20),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Icon(
+                                Icons.airplanemode_active,
                                 size: 50,
                               ),
                             ),
@@ -210,36 +238,14 @@ class _HomeState extends State<Home> {
                           Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: Text(
-                              "Dokumen",
+                              "Transportasi",
                               style: TextStyle(fontSize: 10),
                             ),
                           )
                         ],
                       ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Material(
-                          color: green,
-                          borderRadius: BorderRadius.circular(20),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Icon(
-                              Icons.airplanemode_active,
-                              size: 50,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Text(
-                            "Transportasi",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               )
     

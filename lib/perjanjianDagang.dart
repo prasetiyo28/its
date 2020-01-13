@@ -6,6 +6,8 @@ class PerjanjianDagang extends StatefulWidget {
   _PerjanjianDagangState createState() => _PerjanjianDagangState();
 }
 
+
+
 class _PerjanjianDagangState extends State<PerjanjianDagang> {
   @override
   Widget build(BuildContext context) {
@@ -156,5 +158,13 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPerjanjian(j
           ),
       ),
     );
+
+    
   }
+
+  
+
+
 }
+
+

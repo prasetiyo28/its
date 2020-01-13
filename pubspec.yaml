@@ -63,6 +63,24 @@ flutter:
    - assets/law.png
    - assets/map.png
    - assets/toppeak.png
+   - assets/ASEAN.png
+   - assets/Australia.jpg
+   - assets/Brunei-Darussalam.jpg
+   - assets/China.jpg
+   - assets/Filipina.jpg
+   - assets/India.jpg
+   - assets/Indonesia.jpg
+   - assets/Jepang.jpg
+   - assets/Kambodja.jpg
+   - assets/Korea.jpg
+   - assets/Laos.jpg
+   - assets/Myanmar.jpg
+   - assets/Malaysia.jpg
+   - assets/New-Zaeland.jpg
+   - assets/Pakistan.jpg
+   - assets/Singapur.jpg
+   - assets/Thailand.jpg
+   - assets/Vietnam.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
