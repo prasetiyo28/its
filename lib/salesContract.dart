@@ -52,7 +52,7 @@ class SalesContract extends StatelessWidget {
                           ),
                           Divider(),
                           Text(
-                              "${datas.namaPerusahaan}")
+                              "${datas.namaPerusahaan}\n${datas.alamatPerusahaan}",textAlign: TextAlign.center,)
                         ],
                       ),
                     ),
@@ -82,7 +82,7 @@ class SalesContract extends StatelessWidget {
                           ),
                           Divider(),
                           Text(
-                              "${datas.namaPembeli}")
+                              "${datas.namaPembeli}\n${datas.alamatPembeli}",textAlign: TextAlign.center,)
                         ],
                       ),
                     ),
@@ -111,7 +111,7 @@ class SalesContract extends StatelessWidget {
                             ),
                           ),
                           Divider(),
-                          Text("${datas.jenis} , Jumlah ${datas.jumlah} kg")
+                          Text("${datas.jenis} , Jumlah ${datas.jumlah} ${datas.satuan}")
                         ],
                       ),
                     ),
@@ -141,7 +141,7 @@ class SalesContract extends StatelessWidget {
                           ),
                           Divider(),
                           Text(
-                              "Rp. ${datas.total}")
+                              "${datas.uang}. ${datas.total}")
                         ],
                       ),
                     ),
@@ -231,7 +231,7 @@ class SalesContract extends StatelessWidget {
                           ),
                           Divider(),
                           Text(
-                              "")
+                              "Comercial Invoice\nPacking List\nInsurance Policy\nShipping Instruction\nB/L",textAlign: TextAlign.center),
                         ],
                       ),
                     ),

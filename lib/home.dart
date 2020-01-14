@@ -3,8 +3,15 @@ import 'package:its/forms.dart';
 import 'package:its/login.dart';
 import 'package:its/paymentMethod.dart';
 import 'package:its/perjanjianDagang.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
 
 class Home extends StatefulWidget {
+  
+
+
+
   final User users;
  
   Home({Key key, this.users}) : super(key: key);
@@ -13,10 +20,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
+Future<String>_getStringValuesSF(String key) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  //Return String
+  var a =  prefs.getString(key);
+  return a;
+  
+}
   @override
   Widget build(BuildContext context) {
-    
+
+
+                          
     Color green = const Color(0xffB8E6DB);
     return Scaffold(
       body: Container(
@@ -35,11 +50,11 @@ class _HomeState extends State<Home> {
                     Column(
                       children: <Widget>[
                         Text("Selamat Datang,"),
-                        
-                        Text(
-                          "${widget.users.firstName}",
-                          style: TextStyle(fontSize: 20),
-                        )
+                        FutureBuilder(future: _getStringValuesSF('firstName'),
+                          builder: (context,snapshot){
+                            
+                              return Text(snapshot.data,style: TextStyle(fontSize: 20));
+                          },),
                       ],
                     ),
                     Padding(

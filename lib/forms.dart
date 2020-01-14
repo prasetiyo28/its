@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:its/salesContract.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
+
+
+addStringToSF(key,value) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString(key, value);
+}
 
 class Incoterms {
   int id;
@@ -71,21 +80,30 @@ class Pembayaran {
 
 class Datas {
   final String namaPerusahaan;
+  final String alamatPerusahaan;
   final String namaPembeli;
+  final String alamatPembeli;
   final String jenis;
+  final String satuan;
   final String jumlah;
   final String metodePembayaran;
-  final String total, incoterms, lastShipment;
+  final String total, incoterms, lastShipment,pelabuhanBerangkat,pelabuhanTujuan,uang;
 
   Datas(
     this.namaPerusahaan,
+    this.alamatPerusahaan,
     this.namaPembeli,
+    this.alamatPembeli,
     this.jenis,
+    this.satuan,
     this.jumlah,
     this.metodePembayaran,
     this.total,
     this.incoterms,
     this.lastShipment,
+    this.pelabuhanBerangkat,
+    this.pelabuhanTujuan,
+    this.uang,
     // this.document
   );
 }
@@ -97,14 +115,20 @@ class Forms extends StatefulWidget {
 
 class _FormsState extends State<Forms> {
   TextEditingController namaPerusahaanController = TextEditingController();
+  TextEditingController alamatPerusahaanController = TextEditingController();
   TextEditingController namaPembeliController = TextEditingController();
+  TextEditingController alamatPembeliController = TextEditingController();
   TextEditingController jenisController = TextEditingController();
   TextEditingController jumlahController = TextEditingController();
-  TextEditingController metodePembayaranController = TextEditingController();
   TextEditingController totalController = TextEditingController();
-  TextEditingController incotermsController = TextEditingController();
   TextEditingController lastDateController = TextEditingController();
+  TextEditingController pelabuhanKeberangkatanController = TextEditingController();
+  TextEditingController pelabuhanTujuanController = TextEditingController();
   String buttonText = "Kapan Tanggal terakhir pengiriman barang ?";
+  String metodePembayaran = '';
+  String satuan = '';
+  String incoterms = '';
+  String uang = '';
   // TextEditingController documentController = TextEditingController();
 
   DateTime selectedDate = DateTime.now();
@@ -201,24 +225,30 @@ class _FormsState extends State<Forms> {
   onChangeDropdownItem(Incoterms selectedIncoterms) {
     setState(() {
       _selectedIncoterms = selectedIncoterms;
+    incoterms = selectedIncoterms.name;
+   
+      
     });
   }
 
   onChangeDropdownItemBerat(Berat selectedBerat) {
     setState(() {
       _selectedBerat = selectedBerat;
+      satuan = _selectedBerat.name;
     });
   }
 
   onChangeDropdownItemUang(Uang selectedUang) {
     setState(() {
       _selectedUang = selectedUang;
+      uang = _selectedUang.name;
     });
   }
 
   onChangeDropdownItemPembayaran(Pembayaran selectedPembayaran) {
     setState(() {
       _selectedPembayaran = selectedPembayaran;
+      metodePembayaran = _selectedPembayaran.name;
     });
   }
 
@@ -298,6 +328,16 @@ class _FormsState extends State<Forms> {
                                 labelText: 'Apa Nama Perusahaan Anda ?'),
                           ),
                         ),
+                         Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: TextField(
+                            controller: alamatPerusahaanController,
+                            style: new TextStyle(height: 0.2),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Dimana alamat perusahaan anda?'),
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
@@ -311,6 +351,7 @@ class _FormsState extends State<Forms> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            controller: alamatPembeliController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
@@ -320,6 +361,17 @@ class _FormsState extends State<Forms> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            controller: pelabuhanKeberangkatanController,
+                            style: new TextStyle(height: 0.2),
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Dimana Pelabuhan keberangkatan?'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: TextField(
+                            controller: pelabuhanTujuanController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(),
@@ -355,6 +407,7 @@ class _FormsState extends State<Forms> {
                               ),
                               Container(
                                 child: DropdownButton(
+                                  
                                   value: _selectedBerat,
                                   items: _dropdownMenuItemsBerat,
                                   onChanged: onChangeDropdownItemBerat,
@@ -1049,13 +1102,35 @@ class _FormsState extends State<Forms> {
   _navigateHome(BuildContext context) async {
     Datas datas = new Datas(
         namaPerusahaanController.text,
+        alamatPerusahaanController.text,
         namaPembeliController.text,
+        alamatPembeliController.text,
         jenisController.text,
+        satuan,
         jumlahController.text,
-        metodePembayaranController.text,
+        metodePembayaran,
         totalController.text,
-        incotermsController.text,
-        lastDateController.text);
+        incoterms,
+        lastDateController.text,
+        pelabuhanKeberangkatanController.text,
+        pelabuhanTujuanController.text,
+        uang
+        );
+
+    addStringToSF('namaPerusahaan', namaPerusahaanController.text);
+    addStringToSF('alamatPerusahaan', alamatPerusahaanController.text);
+    addStringToSF('namaPembeli', namaPembeliController.text);
+    addStringToSF('alamatPembeli', alamatPembeliController.text);
+    addStringToSF('jenis', jenisController.text);
+    addStringToSF('satuan', satuan);
+    addStringToSF('jumlah', namaPembeliController.text);
+    addStringToSF('metodePembayaran', metodePembayaran);
+    addStringToSF('total', totalController.text);
+    addStringToSF('incoterms', incoterms);
+    addStringToSF('lastDate', lastDateController.text);
+    addStringToSF('pelabuhanKeberangkatan', pelabuhanKeberangkatanController.text);
+    addStringToSF('pelabuhanTujuan', pelabuhanTujuanController.text);
+    addStringToSF('uang', uang);
     final result = await Navigator.push(
         context,
         MaterialPageRoute(

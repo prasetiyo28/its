@@ -49,7 +49,7 @@ class Invoice extends StatelessWidget {
                             ),
                           ),
                           Divider(),
-                          Text("${datas.namaPerusahaan}")
+                          Text("${datas.namaPerusahaan}\n${datas.alamatPerusahaan}",textAlign: TextAlign.center,)
                         ],
                       ),
                     ),
@@ -77,7 +77,7 @@ class Invoice extends StatelessWidget {
                             ),
                           ),
                           Divider(),
-                          Text("${datas.namaPembeli}")
+                          Text("${datas.namaPembeli}\n${datas.alamatPembeli}",textAlign: TextAlign.center,)
                         ],
                       ),
                     ),

@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:its/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+
+
+
+addStringToSF(key,value) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString(key, value);
+}
 class User {
   final String firstName;
   final String lastName;
@@ -136,6 +144,8 @@ class _LoginState extends State<Login> {
   }
   _navigateHome(BuildContext context) async {
     User user = new User(firstNameController.text, lastNameController.text);
+    addStringToSF('firstName', firstNameController.text);
+    addStringToSF('lastName', lastNameController.text);
     print("ini log : user" + firstNameController.text);
     final result = await Navigator.push(
         context,
