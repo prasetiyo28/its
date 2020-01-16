@@ -82,6 +82,12 @@ flutter:
    - assets/Singapur.jpg
    - assets/Thailand.jpg
    - assets/Vietnam.jpg
+   - assets/search.gif
+   - assets/maps.png
+   - assets/maps1.png
+   - assets/maps2.png
+   - assets/maps3.png
+   - assets/asuransi.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
