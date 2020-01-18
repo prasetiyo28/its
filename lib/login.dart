@@ -102,7 +102,7 @@ class _LoginState extends State<Login> {
                                   ),
                                   
                                 ),
-                                Text("Mari Menjadi Exsportir"),
+                                Text("Mari Menjadi Eksportir"),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 20,bottom: 30),
                                   child: ButtonTheme(

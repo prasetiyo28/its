@@ -65,8 +65,7 @@ class Page extends StatelessWidget {
   }
 
   Widget build(BuildContext context) {
-    print("aww");
-    print(viewModel.isEnd);
+   
     return new Container(
         width: double.infinity,
         color: viewModel.color,

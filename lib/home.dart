@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:its/dokumen.dart';
 import 'package:its/forms.dart';
 import 'package:its/login.dart';
 import 'package:its/paymentMethod.dart';
@@ -212,29 +213,34 @@ Future<String>_getStringValuesSF(String key) async {
                           )
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: Column(
-                          children: <Widget>[
-                            Material(
-                              color: green,
-                              borderRadius: BorderRadius.circular(20),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Icon(
-                                  Icons.note_add,
-                                  size: 50,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Dokumen()));
+                        },
+                                              child: Padding(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: Column(
+                            children: <Widget>[
+                              Material(
+                                color: green,
+                                borderRadius: BorderRadius.circular(20),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(
+                                    Icons.note_add,
+                                    size: 50,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20),
-                              child: Text(
-                                "Dokumen",
-                                style: TextStyle(fontSize: 10),
-                              ),
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: Text(
+                                  "Dokumen",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Column(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'package:its/penelitianShipping.dart';
+import 'package:its/bill.dart';
+import 'package:its/maps2.dart';
 
 import 'forms.dart';
 
-class NotifShipping extends StatelessWidget {
+class PenelitianShipping extends StatelessWidget {
   final Datas datas;
 
-  NotifShipping({Key key, this.datas}) : super(key: key);
+  PenelitianShipping({Key key, this.datas}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -29,19 +29,22 @@ body: Container(
 
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
-                  child: Text("Shipping Instruction",style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                  child: Text("Penelitian Dokumen",style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
-                  child: Text("Dokumen anda telah jadi, kirimkan dokumen ke Perusahaan perkapalan (Shipping Company)",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                  child: Text("Dokumen anda sedang diperiksa oleh Shipping Company",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(40.0),
-                child: Image.asset("assets/list-cheklist.png"),
+                  child: Image.asset("assets/search.gif"),
                 ),
 
                 
-               
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text("Dokumen anda sesuai syarat\nShipping company mengeluarkan Bill of Lading (B/L)",style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                ),
                 ButtonTheme(
                       buttonColor: green,
                       child: RaisedButton(
@@ -49,7 +52,7 @@ body: Container(
                             borderRadius: new BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.white)),
                         child: Text(
-                          "Lanjut",
+                          "Lihat B/L",
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         onPressed: () {
@@ -72,9 +75,8 @@ body: Container(
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => PenelitianShipping(
+            builder: (context) => Bill(
                   datas: datas,
                 )));
-    print(result);
   }
 }
