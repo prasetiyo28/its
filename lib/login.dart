@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:its/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
-
-addStringToSF(key,value) async {
+addStringToSF(key, value) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setString(key, value);
 }
+
 class User {
   final String firstName;
   final String lastName;
-  
 
-  User(this.firstName,this.lastName);
- 
+  User(this.firstName, this.lastName);
 }
 
 class Login extends StatefulWidget {
@@ -24,20 +20,35 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  Future checkLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _login = (prefs.getBool('login') ?? false);
+    
+    if (_login == true) {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new Home()));
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkLogin();
+  }
+
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
-  
-  @override
 
+  @override
   Widget build(BuildContext context) {
     Color green = const Color(0xff2C918D);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
           child: ListView(
-                      children: <Widget>[
-        Stack(
-          children: <Widget>[
+        children: <Widget>[
+          Stack(
+            children: <Widget>[
               Center(
                 child: new Image.asset(
                   'assets/bg.jpeg',
@@ -47,7 +58,8 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30 , bottom: 30, left: 20, right: 20),
+                padding: const EdgeInsets.only(
+                    top: 30, bottom: 30, left: 20, right: 20),
                 child: Center(
                   child: Container(
                     width: size.width,
@@ -55,14 +67,17 @@ class _LoginState extends State<Login> {
                     color: green,
                     child: Column(
                       children: <Widget>[
-                        Text(
-                          "Ekspor\nSimulator",
-                          style: TextStyle(color: Colors.white, fontSize: 30),
-                          textAlign: TextAlign.center,
+                        Padding(
+                          padding: const EdgeInsets.only(top:80.0),
+                          child: Text(
+                            "International Trade\nSimulator",
+                            style: TextStyle(color: Colors.white, fontSize: 30),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 100, right: 20, left: 20),
+                          padding: const EdgeInsets.only(
+                              top: 50, right: 20, left: 20),
                           child: Container(
                             width: size.width,
                             color: Colors.white,
@@ -80,9 +95,7 @@ class _LoginState extends State<Login> {
                                       top: 10, left: 20, right: 20),
                                   child: TextField(
                                     controller: firstNameController,
-                                    style: new TextStyle(
-                                      height: 0.2
-                                    ),
+                                    style: new TextStyle(height: 0.2),
                                     decoration: InputDecoration(
                                         border: OutlineInputBorder(),
                                         hintText: 'Nama Depan'),
@@ -93,68 +106,73 @@ class _LoginState extends State<Login> {
                                       top: 8, left: 20, right: 20),
                                   child: TextField(
                                     controller: lastNameController,
-                                    style: new TextStyle(
-                                      height: 0.2
-                                    ),
+                                    style: new TextStyle(height: 0.2),
                                     decoration: InputDecoration(
                                         border: OutlineInputBorder(),
                                         hintText: 'Nama Belakang'),
                                   ),
-                                  
                                 ),
                                 Text("Mari Menjadi Eksportir"),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 20,bottom: 30),
+                                  padding: const EdgeInsets.only(
+                                      top: 20, bottom: 30),
                                   child: ButtonTheme(
                                       buttonColor: green,
                                       child: RaisedButton(
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 new BorderRadius.circular(18.0),
-                                            side: BorderSide(color: Colors.white)),
+                                            side: BorderSide(
+                                                color: Colors.white)),
                                         child: Text(
                                           "Masukan",
                                           style: TextStyle(
-                                              fontSize: 20, color: Colors.white),
+                                              fontSize: 20,
+                                              color: Colors.white),
                                         ),
-                                        onPressed: () {
-                                          _navigateHome(context);
+                                        onPressed: () async {
+                                          User user = new User(
+                                              firstNameController.text,
+                                              lastNameController.text);
+                                          addStringToSF('firstName',
+                                              firstNameController.text);
+                                          addStringToSF('lastName',
+                                              lastNameController.text);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => Home(
+                                                        users: user,
+                                                      )));
+
+                                          SharedPreferences prefs =
+                                              await SharedPreferences
+                                                  .getInstance();
+                                          await prefs.setBool('login', true);
                                         },
                                       )),
                                 )
                               ],
                             ),
                           ),
-                          
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
-                          child: Text("Dibuat Oleh :\nNatan,Sausan,Tresno,Afif",textAlign: TextAlign.center,),
+                          child: Text(
+                            "Dibuat Oleh :\nNatan,Sausan,Tresno,Afif",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white),
+                          ),
                         )
                       ],
                     ),
                   ),
                 ),
               ),
-          ],
-        ),
-      ],
-          )),
+            ],
+          ),
+        ],
+      )),
     );
   }
-  _navigateHome(BuildContext context) async {
-    User user = new User(firstNameController.text, lastNameController.text);
-    addStringToSF('firstName', firstNameController.text);
-    addStringToSF('lastName', lastNameController.text);
-    print("ini log : user" + firstNameController.text);
-    final result = await Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => Home(
-                  users: user,
-                )));
-    print(result);
-  }
 }
-
-

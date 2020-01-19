@@ -12,7 +12,7 @@ class Peb extends StatelessWidget {
     Color green = const Color(0xff2C918D);
     return Scaffold(
       appBar: AppBar(
-        title: Text("PEB)"),
+        title: Text("PEB"),
         backgroundColor: green,
       ),
       body: Container(
@@ -93,7 +93,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -155,7 +155,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -217,7 +217,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 60,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -279,7 +279,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -341,7 +341,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -403,7 +403,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -465,7 +465,7 @@ class Peb extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -527,7 +527,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -589,7 +589,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -651,7 +651,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -713,7 +713,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -775,7 +775,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -837,7 +837,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -899,7 +899,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -961,7 +961,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -1023,7 +1023,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -1085,7 +1085,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -1147,7 +1147,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(
@@ -1209,7 +1209,7 @@ class Peb extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 240,
                     height: 40,
                     child: Material(
                       borderRadius: BorderRadius.only(

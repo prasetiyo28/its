@@ -81,171 +81,180 @@ class _DetailPerjanjianState extends State<DetailPerjanjian> {
                   "Komponen Perjanjian Dagang",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          Params params = new Params(jenis, 'latar');
-                          //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                          _showDialogLatar(jenis,'latar');
-                        },
-                        child: Container(
-                            width: 100,
-                            child: Material(
-                                elevation: 2,
-                                borderRadius: BorderRadius.circular(10),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
+                Container(
+                  height: 400,
+                  child: ListView(
                                     children: <Widget>[
-                                      Image.asset("assets/statistic.png"),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 5),
-                                        child: Text("Latar Beakang",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),),
-                                      )
-                                    ],
-                                  ),
-                                ))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 15, left: 15),
-                        child: GestureDetector(
-                          onTap: () {
-                            // Params params = new Params(jenis, 'tujuan');
-                            //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                            _showDialogLatar(jenis,'tujuan');
-                          },
-                          child: Container(
-                              width: 100,
-                              child: Material(
-                                  elevation: 2,
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Image.asset("assets/tujuan.png"),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 5),
-                                          child: Text("Tujuan",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
-                                        )
-                                      ],
-                                    ),
-                                  ))),
+                      Column(children: <Widget>[
+                        Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                Params params = new Params(jenis, 'latar');
+                                //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                                _showDialogLatar(jenis,'latar');
+                              },
+                              child: Container(
+                                  width: 100,
+                                  child: Material(
+                                      elevation: 2,
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Image.asset("assets/statistic.png"),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5),
+                                              child: Text("Latar Beakang",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),),
+                                            )
+                                          ],
+                                        ),
+                                      ))),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15, left: 15),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Params params = new Params(jenis, 'tujuan');
+                                  //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                                  _showDialogLatar(jenis,'tujuan');
+                                },
+                                child: Container(
+                                    width: 100,
+                                    child: Material(
+                                        elevation: 2,
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Image.asset("assets/tujuan.png"),
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 5),
+                                                child: Text("Tujuan",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
+                                              )
+                                            ],
+                                          ),
+                                        ))),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Params params = new Params(jenis, 'negara');
+                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                              },
+                              child: Container(
+                                  width: 100,
+                                  child: Material(
+                                      elevation: 2,
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Image.asset("assets/map.png"),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5),
+                                              child: Text("Negara Anggota",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
+                                            )
+                                          ],
+                                        ),
+                                      ))),
+                            ),
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Params params = new Params(jenis, 'negara');
-                           Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                        },
-                        child: Container(
-                            width: 100,
-                            child: Material(
-                                elevation: 2,
-                                borderRadius: BorderRadius.circular(10),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset("assets/map.png"),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 5),
-                                        child: Text("Negara Anggota",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
-                                      )
-                                    ],
-                                  ),
-                                ))),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          // Params params = new Params(jenis, 'peluang');
-                          //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                          _showDialogLatar(jenis,'peluang');
-                        },
-                        child: Container(
-                            width: 100,
-                            child: Material(
-                                elevation: 2,
-                                borderRadius: BorderRadius.circular(10),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset("assets/grafik.png"),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 5),
-                                        child: Text("Peluang",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),),
-                                      )
-                                    ],
-                                  ),
-                                ))),
-                      ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 15, left: 15),
-                        child: GestureDetector(
-                          onTap: () {
-                            // Params params = new Params(jenis, 'manfaat');
-                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                            _showDialogLatar(jenis,'manfaat');
-                          },
-                          child: Container(
-                              width: 100,
-                              child: Material(
-                                  elevation: 2,
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Image.asset("assets/toppeak.png"),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 5),
-                                          child: Text("Manfaat",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
-                                        )
-                                      ],
-                                    ),
-                                  ))),
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                // Params params = new Params(jenis, 'peluang');
+                                //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                                _showDialogLatar(jenis,'peluang');
+                              },
+                              child: Container(
+                                  width: 100,
+                                  child: Material(
+                                      elevation: 2,
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Image.asset("assets/grafik.png"),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5),
+                                              child: Text("Peluang",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),),
+                                            )
+                                          ],
+                                        ),
+                                      ))),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15, left: 15),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Params params = new Params(jenis, 'manfaat');
+                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                                  _showDialogLatar(jenis,'manfaat');
+                                },
+                                child: Container(
+                                    width: 100,
+                                    child: Material(
+                                        elevation: 2,
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Image.asset("assets/toppeak.png"),
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 5),
+                                                child: Text("Manfaat",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
+                                              )
+                                            ],
+                                          ),
+                                        ))),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Params params = new Params(jenis, 'landasan');
+                                //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
+                                _showDialogLatar(jenis, 'landasan');
+                              },
+                              child: Container(
+                                  width: 100,
+                                  child: Material(
+                                      elevation: 2,
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Image.asset("assets/law.png"),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 5),
+                                              child: Text("Landasan Hukum",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
+                                            )
+                                          ],
+                                        ),
+                                      ))),
+                            ),
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Params params = new Params(jenis, 'landasan');
-                          //  Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailKomponen(params : params)));
-                          _showDialogLatar(jenis, 'landasan');
-                        },
-                        child: Container(
-                            width: 100,
-                            child: Material(
-                                elevation: 2,
-                                borderRadius: BorderRadius.circular(10),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset("assets/law.png"),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 5),
-                                        child: Text("Landasan Hukum",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10),),
-                                      )
-                                    ],
-                                  ),
-                                ))),
-                      ),
+                      ],),
                     ],
                   ),
-                ),
+                )
                 
               ],
             ),

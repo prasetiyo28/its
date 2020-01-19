@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:its/login.dart';
+import 'package:its/bill.dart';
 import 'package:its/onboarding.dart';
-
+import 'package:its/splashscreen.dart';
+import 'package:animated_splash/animated_splash.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
        
       ),
-      home: OnBoarding(),
+       home: AnimatedSplash(
+              imagePath: 'assets/icon.png',
+              home: OnBoarding(),
+              duration: 2500,
+              type: AnimatedSplashType.StaticDuration,
+            ),
+
+
     );
   }
 }

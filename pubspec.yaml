@@ -21,16 +21,24 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^0.4.2
+  animated_splash: ^1.0.0
+  delayed_display: ^1.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
 
 
+flutter_icons:
+  android: "launcher_icon" 
+  ios: true
+  image_path_android: "assets/icon.png"
+  image_path_ios: "assets/icon.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
@@ -48,6 +56,7 @@ flutter:
    - assets/bg.jpeg
    - assets/simulasi.png
    - assets/agreement.png
+   - assets/ship.png
    - assets/calendar.png
    - assets/home.png
    - assets/house.png
@@ -56,6 +65,7 @@ flutter:
    - assets/world.png
    - assets/list-cheklist.png
    - assets/incoterm.png
+   - assets/payment.png
    - assets/list_notif.png
    - assets/shipping.gif
    - assets/statistic.png
@@ -89,6 +99,8 @@ flutter:
    - assets/maps3.png
    - assets/asuransi.png
    - assets/bill-of-lading.png
+   - assets/icon.png
+   - assets/jalur-peb.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

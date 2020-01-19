@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:its/Animation_Gesture/page_reveal.dart';
 import 'package:its/UI/pager_indicator.dart';
 import 'package:its/UI/pages.dart';
+import 'package:its/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Animation_Gesture/page_dragger.dart';
+import 'home.dart';
 
 
 class OnBoarding extends StatefulWidget {
@@ -14,6 +17,23 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
+  Future checkFirstSeen() async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        bool _seen = (prefs.getBool('seen') ?? false);
+
+        if (_seen == true) {
+        Navigator.of(context).pushReplacement(
+            new MaterialPageRoute(builder: (context) => new Login()));
+        } 
+    }
+
+    @override
+    void initState() {
+        super.initState();
+        checkFirstSeen();
+        
+    }
+
   StreamController<SlideUpdate> slideUpdateStream;
    AnimatedPageDragger animatedPageDragger;
 

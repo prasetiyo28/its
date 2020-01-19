@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:its/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final pages = [
   new PageViewModel(
@@ -55,9 +56,13 @@ class Page extends StatelessWidget {
                 "Mulai",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
-              onPressed: () {
-                 Navigator.push(context,MaterialPageRoute(builder: (context) => Login()),
-  );
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login()),
+                );
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('seen', true);
               }));
     } else {
       return Text("");
@@ -65,7 +70,6 @@ class Page extends StatelessWidget {
   }
 
   Widget build(BuildContext context) {
-   
     return new Container(
         width: double.infinity,
         color: viewModel.color,
@@ -82,24 +86,21 @@ class Page extends StatelessWidget {
                     child: Container(
                       decoration: ShapeDecoration(
                         color: const Color(0xff2C918D),
-                                shape: RoundedRectangleBorder(
-                            
-                                  side: BorderSide(
-                                       color: Colors.black54),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0)),
-                                ),
-                              ),
-                                        child: new Padding(
-                        padding: new EdgeInsets.only(right: 20.0, left: 20.0, top: 10.0 , bottom: 10.0),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black54),
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        ),
+                      ),
+                      child: new Padding(
+                        padding: new EdgeInsets.only(
+                            right: 20.0, left: 20.0, top: 10.0, bottom: 10.0),
                         child: new Text(
                           "Kewajiban Eksportir",
                           style: new TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'FlamanteRoma',
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.white,
+                              fontFamily: 'FlamanteRoma',
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -114,11 +115,10 @@ class Page extends StatelessWidget {
                     child: new Text(
                       viewModel.title,
                       style: new TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'FlamanteRoma',
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold
-                      ),
+                          color: Colors.black,
+                          fontFamily: 'FlamanteRoma',
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   ),

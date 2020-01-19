@@ -273,6 +273,14 @@ class _FormsState extends State<Forms> {
     return Scaffold(
       
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.center, // 10% of the width, so there are ten blinds.
+      colors: [green, const Color(0xFFFFFFFF)], // whitish to gray
+      tileMode: TileMode.clamp, // repeats the gradient over the canvas
+    ),
+        ),
         child: Column(
           children: <Widget>[
             Padding(
@@ -321,6 +329,7 @@ class _FormsState extends State<Forms> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            keyboardType: TextInputType.text,
                             controller: namaPerusahaanController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
@@ -331,6 +340,7 @@ class _FormsState extends State<Forms> {
                          Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            keyboardType: TextInputType.text,
                             controller: alamatPerusahaanController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
@@ -339,6 +349,7 @@ class _FormsState extends State<Forms> {
                           ),
                         ),
                         Padding(
+                          
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
                             controller: namaPembeliController,
@@ -361,6 +372,7 @@ class _FormsState extends State<Forms> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            keyboardType: TextInputType.text,
                             controller: pelabuhanKeberangkatanController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
@@ -371,6 +383,7 @@ class _FormsState extends State<Forms> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
+                            keyboardType: TextInputType.text,
                             controller: pelabuhanTujuanController,
                             style: new TextStyle(height: 0.2),
                             decoration: InputDecoration(
@@ -379,6 +392,7 @@ class _FormsState extends State<Forms> {
                           ),
                         ),
                         Padding(
+                          
                           padding: const EdgeInsets.only(top: 10),
                           child: TextField(
                             controller: jenisController,
@@ -397,6 +411,7 @@ class _FormsState extends State<Forms> {
                                 child: Container(
                                   width: 220,
                                   child: TextField(
+                                  keyboardType: TextInputType.numberWithOptions(decimal: false),
                                     controller: jumlahController,
                                     style: new TextStyle(height: 0.2),
                                     decoration: InputDecoration(
@@ -426,6 +441,7 @@ class _FormsState extends State<Forms> {
                                 child: Container(
                                   width: 220,
                                   child: TextField(
+  
                                     controller: totalController,
                                     style: new TextStyle(height: 0.2),
                                     decoration: InputDecoration(

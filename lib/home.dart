@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:its/dokumen.dart';
 import 'package:its/forms.dart';
+
 import 'package:its/login.dart';
 import 'package:its/paymentMethod.dart';
 import 'package:its/perjanjianDagang.dart';
+import 'package:its/incoterms.dart';
+import 'package:its/transportasi.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -36,6 +39,14 @@ Future<String>_getStringValuesSF(String key) async {
     Color green = const Color(0xffB8E6DB);
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.center, // 10% of the width, so there are ten blinds.
+      colors: [green, const Color(0xFFFFFFFF)], // whitish to gray
+      tileMode: TileMode.clamp, // repeats the gradient over the canvas
+    ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -54,25 +65,13 @@ Future<String>_getStringValuesSF(String key) async {
                         FutureBuilder(future: _getStringValuesSF('firstName'),
                           builder: (context,snapshot){
                             
-                              return Text(snapshot.data,style: TextStyle(fontSize: 20));
+                              return Text(snapshot.data,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold));
                           },),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 40),
-                      child: ButtonTheme(
-                          buttonColor: Colors.white,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.black)),
-                            child: Text(
-                              "Edit Info",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black),
-                            ),
-                            onPressed: () {},
-                          )),
+                      child: Image.asset("assets/icon.png",height: 80,)
                     )
                   ],
                 ),
@@ -88,7 +87,7 @@ Future<String>_getStringValuesSF(String key) async {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Icon(Icons.verified_user),
+                          child: Icon(Icons.info),
                         ),
                         Text(
                             "Mari kita belajar ekspor !\nDengan Internasional\nTrade Simulator\nKita akan belajar lebih jelas\nmengenai proses perdagangan\n internasional\nSelamat Mencoba !")
@@ -111,10 +110,7 @@ Future<String>_getStringValuesSF(String key) async {
                           },
                                                       child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.next_week,
-                                size: 50,
-                              ),
+                              child: Image.asset("assets/simulasi.png",width: 50,)
                             ),
                           ),
                         ),
@@ -140,10 +136,7 @@ Future<String>_getStringValuesSF(String key) async {
                               borderRadius: BorderRadius.circular(20),
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: Icon(
-                                  Icons.pan_tool,
-                                  size: 50,
-                                ),
+                                child: Image.asset("assets/agreement.png",width: 50,)
                               ),
                             ),
                             Padding(
@@ -157,27 +150,29 @@ Future<String>_getStringValuesSF(String key) async {
                         ),
                       ),
                     ),
-                    Column(
-                      children: <Widget>[
-                        Material(
-                          color: green,
-                          borderRadius: BorderRadius.circular(20),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Icon(
-                              Icons.note,
-                              size: 50,
+                    GestureDetector(
+                      onTap: (){
+                                                Navigator.push(context, MaterialPageRoute(builder: (context)=>IncotermsPage()));
+                      },
+                                          child: Column(
+                        children: <Widget>[
+                          Material(
+                            color: green,
+                            borderRadius: BorderRadius.circular(20),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Image.asset("assets/incoterm.png",width: 50,)
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Text(
-                            "Incoterms",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              "Incoterms",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -197,10 +192,7 @@ Future<String>_getStringValuesSF(String key) async {
                             borderRadius: BorderRadius.circular(20),
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.monetization_on,
-                                size: 50,
-                              ),
+                              child: Image.asset("assets/payment.png",width: 50,)
                             ),
                           ),
                           Padding(
@@ -226,10 +218,7 @@ Future<String>_getStringValuesSF(String key) async {
                                 borderRadius: BorderRadius.circular(20),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: Icon(
-                                    Icons.note_add,
-                                    size: 50,
-                                  ),
+                                  child: Image.asset("assets/list-cheklist.png",width: 50,)
                                 ),
                               ),
                               Padding(
@@ -243,27 +232,29 @@ Future<String>_getStringValuesSF(String key) async {
                           ),
                         ),
                       ),
-                      Column(
-                        children: <Widget>[
-                          Material(
-                            color: green,
-                            borderRadius: BorderRadius.circular(20),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Icon(
-                                Icons.airplanemode_active,
-                                size: 50,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Transportasi()));
+                        },
+                                              child: Column(
+                          children: <Widget>[
+                            Material(
+                              color: green,
+                              borderRadius: BorderRadius.circular(20),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Image.asset("assets/ship.png",width: 50,)
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              "Transportasi",
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          )
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Text(
+                                "Transportasi",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),

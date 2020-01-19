@@ -74,7 +74,7 @@ class Invoice extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 70,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -137,7 +137,7 @@ class Invoice extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 70,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -200,7 +200,7 @@ class Invoice extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 70,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -293,7 +293,7 @@ class Invoice extends StatelessWidget {
                       FutureBuilder(
                         future: _getStringValuesSF('firstName'),
                         builder: (context, snapshot) {
-                          return Text(snapshot.data,
+                          return Text(snapshot.data + ' ',
                               style: TextStyle(fontSize: 20));
                         },
                       ),

@@ -7,7 +7,7 @@ class InsurancePolicy extends StatelessWidget {
 
   InsurancePolicy({Key key, this.datas}) : super(key: key);
   Widget build(BuildContext context) {
-    double harga = double.parse(datas.total);
+    double harga = double.parse(datas.total) ?? 0.0;
     double sum = (110/100) * harga;
     Color green = const Color(0xff2C918D);
     return Scaffold(
@@ -67,7 +67,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -129,7 +129,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -191,7 +191,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -253,7 +253,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -315,7 +315,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -377,7 +377,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 70,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -439,7 +439,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -501,7 +501,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -563,7 +563,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -625,7 +625,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -687,7 +687,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -749,7 +749,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -811,7 +811,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(
@@ -873,7 +873,7 @@ class InsurancePolicy extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width: 250,
+                        width: 240,
                         height: 40,
                         child: Material(
                           borderRadius: BorderRadius.only(

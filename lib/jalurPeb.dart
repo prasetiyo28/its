@@ -17,9 +17,11 @@ class JalurPeb extends StatelessWidget {
       body: Container(
         child: 
         Column(children: <Widget>[
+          Image.asset("assets/jalur-peb.png",height: 450,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              
               ButtonTheme(
                 buttonColor: green,
                           child: RaisedButton(
